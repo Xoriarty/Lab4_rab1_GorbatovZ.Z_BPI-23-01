@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Lab4_rab1_GorbatovZ.Z_BPI_23_01.Model;
 
 namespace Lab4_rab1_GorbatovZ.Z_BPI_23_01.Helper
 {
-    internal class FindRole
+    public class FindRole
     {
+        private int _id;
+
+        public FindRole(int id)
+        {
+            _id = id;
+        }
+
+        public bool RolePredicate(Role role)
+        {
+            return role.Id == _id;
+        }
     }
 }
