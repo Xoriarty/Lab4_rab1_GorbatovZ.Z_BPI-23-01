@@ -6,7 +6,19 @@
         xmlns:local="clr-namespace:Lab4_rab1_GorbatovZ.Z_BPI_23_01.View"
         mc:Ignorable="d"
         Title="WindowEmployee" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <ListView x:Name="lvEmployee" ItemsSource="{Binding Persons}">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Код" Width="50" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Фамилия" DisplayMemberBinding="{Binding LastName}"/>
+                        <GridViewColumn Header="Имя" DisplayMemberBinding="{Binding FirstName}"/>
+                        <GridViewColumn Header="Должность" Width="100" DisplayMemberBinding="{Binding Role}"/>
+                        <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Birthday, StringFormat={}{0:dd\.}{0:MM\.}{0:yyyy}}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </StackPanel>
 </Window>

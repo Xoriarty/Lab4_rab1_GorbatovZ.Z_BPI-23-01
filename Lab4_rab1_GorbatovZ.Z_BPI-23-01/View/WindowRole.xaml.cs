@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab4_rab1_GorbatovZ.Z_BPI_23_01.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace Lab4_rab1_GorbatovZ.Z_BPI_23_01.View
         public WindowRole()
         {
             InitializeComponent();
+            DataContext = new RoleViewModel();
         }
     }
 }
