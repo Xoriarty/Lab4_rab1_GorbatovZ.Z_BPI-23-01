@@ -55,7 +55,7 @@ namespace Lab4_rab1_GorbatovZ.Z_BPI_23_01.ViewModel
                 Persons.Add(new PersonDPO
                 {
                     Id = person.Id,
-                    Role = role?.NameRole ?? "Неизвестно",
+                    RoleName = role?.NameRole ?? "Неизвестно",
                     FirstName = person.FirstName,
                     LastName = person.LastName,
                     Birthday = person.Birthday
