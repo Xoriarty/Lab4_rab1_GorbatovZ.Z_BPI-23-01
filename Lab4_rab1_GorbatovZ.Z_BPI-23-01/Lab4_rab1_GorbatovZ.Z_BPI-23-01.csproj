@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -57,11 +57,14 @@
     </ApplicationDefinition>
     <Compile Include="Helper\FindPerson.cs" />
     <Compile Include="Helper\FindRole.cs" />
+    <Compile Include="Helper\IClosable.cs" />
     <Compile Include="Helper\RelayCommand.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\PersonDPO.cs" />
     <Compile Include="Model\Role.cs" />
+    <Compile Include="ViewModel\PersonEditViewModel.cs" />
     <Compile Include="ViewModel\PersonViewModel.cs" />
+    <Compile Include="ViewModel\RoleEditViewModel.cs" />
     <Compile Include="ViewModel\RoleViewModel.cs" />
     <Compile Include="View\WindowEmployee.xaml.cs">
       <DependentUpon>WindowEmployee.xaml</DependentUpon>

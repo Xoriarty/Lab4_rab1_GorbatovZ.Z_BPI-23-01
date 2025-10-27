@@ -64,7 +64,7 @@
                Content="Код:" 
                HorizontalAlignment="Right"/>
         <TextBox Grid.Row="1" Grid.Column="1" 
-                 Text="{Binding Id, Mode=OneWay}" 
+                 Text="{Binding Person.Id, Mode=OneWay}" 
                  IsEnabled="False" 
                  Background="#FFF0F0F0"/>
 
@@ -74,33 +74,33 @@
         <ComboBox Grid.Row="2" Grid.Column="1" Name="CbRole"
           DisplayMemberPath="NameRole"
           ItemsSource="{Binding}"
-          SelectedValue="{Binding RoleName}"
+          SelectedValue="{Binding Person.RoleName}"
           SelectedValuePath="NameRole"/>
 
         <Label Grid.Row="3" Grid.Column="0" 
                Content="Фамилия:" 
                HorizontalAlignment="Right"/>
         <TextBox Name="txtLastName" Grid.Row="3" Grid.Column="1" 
-                 Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}"/>
+                 Text="{Binding Person.LastName, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="4" Grid.Column="0" 
                Content="Имя:" 
                HorizontalAlignment="Right"/>
         <TextBox Name="txtFirstName" Grid.Row="4" Grid.Column="1" 
-                 Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"/>
+                 Text="{Binding Person.FirstName, UpdateSourceTrigger=PropertyChanged}"/>
 
         <Label Grid.Row="5" Grid.Column="0" 
                Content="Дата рождения:" 
                HorizontalAlignment="Right"/>
         <DatePicker Grid.Row="5" Grid.Column="1" 
-                    SelectedDate="{Binding Birthday}"/>
+                    SelectedDate="{Binding Person.Birthday}"/>
 
         <StackPanel Grid.Row="7" Grid.ColumnSpan="2" 
                     Orientation="Horizontal" 
                     HorizontalAlignment="Center" 
                     Margin="0,20,0,0">
-            <Button Content="Сохранить" IsDefault="True" Click="Button_Click"/>
-            <Button Content="Отменить" IsCancel="True" Click="Button_Click_1"/>
+            <Button Content="Сохранить" Command="{Binding SaveCommand}" />
+            <Button Content="Отменить" Command="{Binding CancelCommand}" />
         </StackPanel>
     </Grid>
 </Window>

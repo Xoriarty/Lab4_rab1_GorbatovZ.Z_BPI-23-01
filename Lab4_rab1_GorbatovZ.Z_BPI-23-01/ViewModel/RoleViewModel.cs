@@ -63,22 +63,23 @@ namespace Lab4_rab1_GorbatovZ.Z_BPI_23_01.ViewModel
         {
             get
             {
-                return addRole ??
-                (addRole = new RelayCommand(obj =>
+                if (addRole == null)
                 {
-                    WindowNewRole wnRole = new WindowNewRole
+                    addRole = new RelayCommand(obj =>
                     {
-                        Title = "Новая должность",
-                    };
-                    int maxIdRole = MaxId() + 1;
-                    Role role = new Role { Id = maxIdRole };
-                    wnRole.DataContext = role;
-                    if (wnRole.ShowDialog() == true)
-                    {
-                        ListRole.Add(role);
-                    }
-                    SelectedRole = role;
-                }));
+                        var newRole = new Role { Id = MaxId() + 1 };
+                        var window = new WindowNewRole();
+                        var vm = new RoleEditViewModel(newRole, window);
+                        window.DataContext = vm;
+
+                        if (window.ShowDialog() == true)
+                        {
+                            ListRole.Add(newRole);
+                            SelectedRole = newRole;
+                        }
+                    });
+                }
+                return addRole;
             }
         }
         private RelayCommand editRole;
@@ -86,20 +87,25 @@ namespace Lab4_rab1_GorbatovZ.Z_BPI_23_01.ViewModel
         {
             get
             {
-                return editRole ??
-                (editRole = new RelayCommand(obj =>
+                if (editRole == null)
                 {
-                    WindowNewRole wnRole = new WindowNewRole
-                    { Title = "Редактирование должности", };
-                    Role role = SelectedRole;
-                    Role tempRole = new Role();
-                    tempRole = role.ShallowCopy();
-                    wnRole.DataContext = tempRole;
-                    if (wnRole.ShowDialog() == true)
+                    editRole = new RelayCommand(obj =>
                     {
-                        role.NameRole = tempRole.NameRole;
-                    }
-                }, (obj) => SelectedRole != null && ListRole.Count > 0));
+                        if (SelectedRole == null) return;
+
+                        var originalRole = SelectedRole;
+                        var tempRole = originalRole.ShallowCopy();
+                        var window = new WindowNewRole();
+                        var vm = new RoleEditViewModel(tempRole, window);
+                        window.DataContext = vm;
+
+                        if (window.ShowDialog() == true)
+                        {
+                            originalRole.NameRole = tempRole.NameRole;
+                        }
+                    }, _ => SelectedRole != null && ListRole.Count > 0);
+                }
+                return editRole;
             }
         }
 
