@@ -1,0 +1,60 @@
+﻿<Window x:Class="Lab4_rab1_GorbatovZ.Z_BPI_23_01.View.WindowNewRole"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lab4_rab1_GorbatovZ.Z_BPI_23_01.View"
+        mc:Ignorable="d"
+        Title="WindowNewRole" Height="200" Width="300"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="10,5"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Код должности:"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Id}" 
+                 IsEnabled="False" Background="#FFF0F0F0"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Наименование должности:"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding NameRole, UpdateSourceTrigger=PropertyChanged}"
+                 Name="txtNameRole"/>
+
+        <StackPanel Grid.Row="4" Grid.ColumnSpan="2" Orientation="Horizontal" 
+                    HorizontalAlignment="Center" Margin="0,20,0,0">
+            <Button Content="Сохранить" IsDefault="True" Click="Button_Click"/>
+            <Button Content="Отменить" IsCancel="True" Click="Button_Click_1"/>
+        </StackPanel>
+    </Grid>
+</Window>

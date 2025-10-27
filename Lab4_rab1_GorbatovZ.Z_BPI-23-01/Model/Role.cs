@@ -24,7 +24,7 @@ namespace Lab4_rab1_GorbatovZ.Z_BPI_23_01.Model
             this.Id = id;
             this.NameRole = nameRole;
         }
-        public Role ShallCopy()
+        public Role ShallowCopy()
         {
             return (Role) this.MemberwiseClone();
         }

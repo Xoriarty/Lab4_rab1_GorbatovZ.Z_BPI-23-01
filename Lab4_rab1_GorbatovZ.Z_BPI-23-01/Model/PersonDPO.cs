@@ -59,7 +59,7 @@ namespace Lab4_rab1_GorbatovZ.Z_BPI_23_01.Model
             this.LastName = lastName;
             this.Birthday = birthday;
         }
-        public PersonDPO ShallCopy()
+        public PersonDPO ShallowCopy()
         {
             return (PersonDPO)this.MemberwiseClone();
         }

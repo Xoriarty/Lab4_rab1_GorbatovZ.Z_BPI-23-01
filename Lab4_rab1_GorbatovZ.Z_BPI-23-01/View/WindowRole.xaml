@@ -8,7 +8,7 @@
         Title="WindowRole" Height="450" Width="800">
     <StackPanel Background="#FFD8D8D8">
         <Label Margin="5" HorizontalAlignment="Center">Список должностей сотрудников</Label>
-        <ListView x:Name="lvRole" Background="#FFD3CDCD" ItemsSource="{Binding ListRole}">
+        <ListView x:Name="lvRole" Background="#FFD3CDCD" ItemsSource="{Binding ListRole}" SelectedItem="{Binding SelectedRole}">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
@@ -18,5 +18,16 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Grid Margin="15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Name="btnAdd" Grid.Column="0" Content="Добавить" Height="25" Width="100" Command="{Binding AddRole}"/>
+            <Button Name="btnEdit" Grid.Column="1" Content="Редактировать" Height="25" Width="100" Command="{Binding EditRole}"/>
+            <Button Name="btnDelete" Grid.Column="2" Content="Удалить" Height="25" Width="100" Command="{Binding DeleteRole}"/>
+
+        </Grid>
     </StackPanel>
 </Window>

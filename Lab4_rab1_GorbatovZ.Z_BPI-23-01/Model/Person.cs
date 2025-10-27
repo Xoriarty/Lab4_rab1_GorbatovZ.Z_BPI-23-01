@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab4_rab1_GorbatovZ.Z_BPI_23_01.ViewModel;
+using System;
 
 namespace Lab4_rab1_GorbatovZ.Z_BPI_23_01.Model
 {
@@ -19,6 +20,26 @@ namespace Lab4_rab1_GorbatovZ.Z_BPI_23_01.Model
             this.FirstName = firstName;
             this.LastName = lastName;
             this.Birthday = birthday;
+        }
+        public Person CopyFromPersonDPO(PersonDPO personDpo)
+        {
+            Person person = new Person();
+            person.Id = personDpo.Id;
+            person.FirstName = personDpo.FirstName;
+            person.LastName = personDpo.LastName;
+            person.Birthday = personDpo.Birthday;
+
+            RoleViewModel vmRole = new RoleViewModel();
+            foreach (var r in vmRole.ListRole)
+            {
+                if (r.NameRole == personDpo.RoleName)
+                {
+                    person.RoleId = r.Id;
+                    break;
+                }
+            }
+
+            return person;
         }
     }
 }
