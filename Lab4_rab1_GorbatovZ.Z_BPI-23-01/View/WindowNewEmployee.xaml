@@ -72,8 +72,10 @@
                Content="Должность:" 
                HorizontalAlignment="Right"/>
         <ComboBox Grid.Row="2" Grid.Column="1" Name="CbRole"
-                  DisplayMemberPath="NameRole"
-                  SelectedValuePath="Id"/>
+          DisplayMemberPath="NameRole"
+          ItemsSource="{Binding}"
+          SelectedValue="{Binding RoleName}"
+          SelectedValuePath="NameRole"/>
 
         <Label Grid.Row="3" Grid.Column="0" 
                Content="Фамилия:" 
