@@ -62,6 +62,7 @@
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\PersonDPO.cs" />
     <Compile Include="Model\Role.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\PersonEditViewModel.cs" />
     <Compile Include="ViewModel\PersonViewModel.cs" />
     <Compile Include="ViewModel\RoleEditViewModel.cs" />
